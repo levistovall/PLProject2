@@ -1,4 +1,4 @@
-package stovall;
+package stovall.person;
 
 /**
  * Create an abstract Person class that stores first name, last name, and email address.
