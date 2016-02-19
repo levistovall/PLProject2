@@ -15,33 +15,25 @@ public class PersonApp {
 
     public static void main(String args[]) {
         // display a welcome message
-        System.out.println("Welcome to the Person Tester Application");
-        System.out.println();
+        Console.displayLine("Welcome to the Person Tester Application");
+        Console.displayLine();
 
         // perform 1 or more selections
-        Scanner sc = new Scanner(System.in);
         String choice1 = "y";
 
         while (choice1.equalsIgnoreCase("y")) {
-            System.out.print("Create customer or employee? (c/e): ");
-            String choice2 = sc.nextLine();  // read the product code
-            System.out.println("");
+            String choice2 =
+                    Console.getString("Create customer or employee? (c/e): ");
+            Console.displayLine("");
 
-            String firstName = "";
-            String lastName = "";
-            String email = "";
 
-            System.out.print("Enter first name: ");
-            firstName = sc.nextLine();
-            System.out.print("Enter last name: ");
-            lastName = sc.nextLine();
-            System.out.print("Enter email address: ");
-            email = sc.nextLine();
+            String firstName = Console.getString("Enter first name: ");
+            String lastName = Console.getString("Enter last name: ");
+            String email = Console.getString("Enter email address: ");
 
             if(choice2.equalsIgnoreCase("c")){
-                System.out.print("Customer number: ");
-                String custNum = sc.nextLine();
-                System.out.println("");
+                String custNum = Console.getString("Customer number: ");
+                Console.displayLine();
 
 
                 Customer customer = new Customer();
@@ -50,13 +42,11 @@ public class PersonApp {
                 customer.setEmail(email);
                 customer.setCustNum(custNum);
 
-                System.out.println("You entered: ");
-                System.out.print(customer.getDisplayText());
-                System.out.println("");
+                Console.displayLine("You entered: ");
+                Console.displayLine(customer.getDisplayText());
             }else{
-                System.out.print("Social security number: ");
-                String socialNum = sc.nextLine();
-                System.out.println("");
+                String socialNum = Console.getString("Social security number: ");
+                Console.displayLine();
 
 
                 Employee employee = new Employee();
@@ -65,16 +55,14 @@ public class PersonApp {
                 employee.setEmail(email);
                 employee.setSocialNum(socialNum);
 
-                System.out.println("You entered: ");
-                System.out.print(employee.getDisplayText());
-                System.out.println("");
+                Console.displayLine("You entered: ");
+                Console.displayLine(employee.getDisplayText());
             }
 
 
             // see if the user wants to continue
-            System.out.print("Continue? (y/n): ");
-            choice1 = sc.nextLine();
-            System.out.println();
+            choice1 = Console.getString("Continue? (y/n): ");
+            Console.displayLine();
         }
     }
 }
