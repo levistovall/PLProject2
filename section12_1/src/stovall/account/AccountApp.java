@@ -27,21 +27,25 @@ public class AccountApp {
         while(choice1.equalsIgnoreCase("y")){
             String choice2 =
                     Console.getString("Withdrawal or deposit? (w/d): ");
-            double a = Console.getDouble("Amount: ");
             if(choice2.equalsIgnoreCase("d")){
+                double a = Console.getDouble("Amount: ");
                 if(a <= 10000){
                     t.deposit(checking1, a);
                 }else{
                     Console.displayLine();
                     Console.displayLine("The requested deposit is too big.");
                 }
-            }else{
+            }else if(choice2.equalsIgnoreCase("w")){
+                double a = Console.getDouble("Amount: ");
                 if(a <= checking1.getBalance()){
                     t.withdraw(checking1, a);
                 }else{
                     Console.displayLine();
                     Console.displayLine("The requested withdrawal is too big.");
                 }
+            }else{
+                Console.displayLine();
+                Console.displayLine("Invalid entry.");
             }
 
             Console.displayLine();
@@ -51,6 +55,8 @@ public class AccountApp {
         Console.displayLine("Monthly Fees");
         Console.displayLine(checking1.getMonthlyFeeFormatted());
         Console.displayLine();
+
+        checking1.subtractMonthlyFee();
 
         Console.displayLine("Final Balance");
         Console.displayLine(checking1.getBalanceFormatted());

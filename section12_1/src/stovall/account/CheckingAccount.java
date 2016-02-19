@@ -15,6 +15,11 @@ import java.text.NumberFormat;
 public class CheckingAccount extends Account {
     private double monthlyFee;
 
+    public CheckingAccount(){
+        super();
+        monthlyFee = 1;
+    }
+
     public void subtractMonthlyFee(){
         this.withdraw(monthlyFee);
     }
@@ -28,7 +33,7 @@ public class CheckingAccount extends Account {
     }
 
     public String getMonthlyFeeFormatted(){
-        String monthlyFeeFormatted = "Cheking fee:" + NumberFormat.getCurrencyInstance().format(this.getMonthlyFee());
+        String monthlyFeeFormatted = "Checking fee:" + NumberFormat.getCurrencyInstance().format(this.getMonthlyFee());
         return monthlyFeeFormatted;
     }
 }
